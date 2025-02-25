@@ -10,9 +10,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
       <h1 className="text-2xl font-bold mb-4">Welcome to the Dashboard!</h1>
-      <Button onClick={handleSignOut} variant="destructive">
+      <Button onClick={handleSignOut} variant="destructive" className="bg-yellow-500 text-black">
         Sign Out
       </Button>
     </div>

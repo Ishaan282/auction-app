@@ -5,6 +5,8 @@ import Home from "./pages/home";
 import Dashboard from "./app/Dashboard/dashboard";
 import SignInPage from "./auth/sign-in/page";
 import SignUpPage from "./auth/sign-up/page";
+import Layout from "./app/Dashboard/layout";
+
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -29,7 +31,14 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
         <Route path="/auth/sign-in" element={<SignInPage />} />
         <Route path="/auth/sign-up" element={<SignUpPage />} />
 
@@ -38,8 +47,10 @@ const App: React.FC = () => {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
+              <Layout>              
+                <Dashboard />
+               </Layout>
+            </ProtectedRoute> 
           }
         />
 
